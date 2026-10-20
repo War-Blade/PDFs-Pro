@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPDFs - PDF Merger & Protector</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="libs/pdf-lib.min.js"></script>
+  <script src="libs/jspdf.umd.min.js"></script>
+  <script src="libs/pdf.min.js"></script>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="10" height="14" rx="2" fill="#2563eb"/>
+        <rect x="6" y="6" width="7" height="8" rx="1" fill="#ffffff" opacity="0.9"/>
+        <path d="M15 7h6v12a2 2 0 01-2 2h-6v-14z" fill="#3b82f6" opacity="0.7"/>
+        <path d="M17 7h4v2h-4z" fill="#1e40af" opacity="0.5"/>
+      </svg>
+      <h2>MPDFs</h2>
+    </div>
+    <p class="subtitle">
+      Merge PDFs, select specific pages, and password-protect your document — 100% in-browser, works fully offline.
+    </p>
+
+    <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Select PDF files">
+      <span class="icon">📄</span>
+      <strong>Click to select PDF files</strong> or drag & drop here
+    </div>
+    <input type="file" id="fileInput" multiple accept="application/pdf,.pdf">
+
+    <ul class="file-list" id="fileList">
+      <li class="empty-state"><p>No PDFs added yet. Upload some files to get started!</p></li>
+    </ul>
+
+    <div class="security-box">
+      <label for="pdfPassword">🔒 Set PDF Password (Optional)</label>
+      <input type="password" id="pdfPassword" placeholder="Leave empty to merge without password">
+      <div class="hint">Adds password protection. Note: when a password is set, pages are rendered as high-quality images to enable encryption (text will no longer be selectable).</div>
+    </div>
+
+    <button id="mergeBtn" class="primary" disabled>Merge & Download</button>
+    <div id="status"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
